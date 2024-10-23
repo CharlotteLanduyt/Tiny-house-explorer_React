@@ -1,0 +1,68 @@
+body
+    nav
+        display: flex
+        align-items: start
+        justify-content: space-between
+        position: absolute
+        padding: 20px
+        width: calc(100% - (20px * 2))
+
+        #logo
+            text-decoration: none
+            margin: 20px
+            font-family: $title_font
+
+        #logo::first-letter
+            font-family: $fancy_font
+            font-size: 2em
+
+        &>p
+            width: 10%
+            font-size: 12px
+            margin: 40px 0
+            text-transform: uppercase
+            pointer-events: none
+
+        h1
+            display: flex
+            flex-direction: column
+            align-items: start
+            font-size: 3em
+            width: 30%
+            font-weight: 100
+            
+            p
+                width: 80%
+                font-family: $title_font
+                pointer-events: none
+
+            p::first-letter
+                font-family: $fancy_font
+                font-size: 2em
+
+            button
+                margin-top: 2em
+                border: solid 0.5px
+                background: none
+                padding: 10px 15px
+                border-radius: 200px
+                transition: ease-in-out 0.5s
+                background: #ffffff20
+                backdrop-filter: blur(2px)
+
+
+    footer
+        padding: 20px
+        position: absolute
+        bottom: 0
+
+        a
+            display: inline-block
+            font-size: 10px
+            margin-right: 10px
+            text-decoration: none
+
+        a::first-letter
+            font-family: $fancy_font
+            font-size: 2em
+            margin-right: 3px

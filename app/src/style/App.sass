@@ -1,0 +1,29 @@
+// variables
+@import './variables/fonts'
+@import './variables/colors'
+
+
+// Components 
+@import './components/Base'
+@import './components/Home'
+
+
+// general
+
+*
+    margin: 0
+    font-family: $principal_font
+    color: $general_text_color
+
+button:hover, a:hover
+    cursor: pointer
+
+button:hover
+    color: #fff
+    background-color: $darker_text_color
+
+a
+    transition: ease-in-out 0.5s
+
+a:hover
+    color: $darker_text_color
