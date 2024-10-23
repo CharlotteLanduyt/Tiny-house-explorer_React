@@ -7,12 +7,12 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <NavLink to={'/'} id="logo"> Logo </NavLink>
+        <NavLink to={'/'} id="logo"> My_Tiny </NavLink>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur.
+          Explore happiness in a tiny world.
         </p>
-
+        
         <h1>
           <p>MY SUPER TITLE IS COOL</p>
           <button>EXPLORE OUR PRODUCTS</button>

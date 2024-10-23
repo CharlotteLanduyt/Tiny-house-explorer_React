@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import { useState } from "react"
 
 export default function Home(){
     let products = [
@@ -8,7 +9,7 @@ export default function Home(){
             'price': 100,
             'forest': "Black Forest",
             'country': "Germany",
-            'image':`${process.env.PUBLIC_URL}/images/tiny_house_1.jpg`,
+            'image':`/images/Tiny_house_1.png`,
         },
         {
             'id': 2,
@@ -16,7 +17,7 @@ export default function Home(){
             'price': 120,
             'forest': "Hallerbos",
             'country': "Belgium",
-            'image':`${process.env.PUBLIC_URL}/images/tiny_house_2.jpg`,
+            'image':`/images/Tiny_house_2.png`,
         },
         {
             'id': 3,
@@ -24,7 +25,7 @@ export default function Home(){
             'price': 100,
             'forest': "Tatra National Park",
             'country': "Slovakia/Poland",
-            'image':`${process.env.PUBLIC_URL}/images/tiny_house_3.jpg`,
+            'image':`/images/Tiny_house_3.png`,
         },
         {
             'id': 4,
@@ -32,23 +33,27 @@ export default function Home(){
             'price': 90,
             'forest': "Plitvice Lakes National Park",
             'country': "Croatia",
-            'image':`${process.env.PUBLIC_URL}/images/tiny_house_4.jpg`,
+            'image':`/images/Tiny_house_4.png`,
         }
     ]
 
+    let [openIndexes, setOpenIndexes] = useState([])
+
+    function toggleIndex(index){
+        if(!openIndexes.includes(index)){
+            setOpenIndexes([...openIndexes, index])
+        }
+    }
+
     return(
         <section id="home">
-            <NavLink to="">
-
-            </NavLink>
-            
-            <NavLink to="">
-
-            </NavLink>
-
-            <NavLink to="">
-
-            </NavLink>
+            {products.map((product, index)=>(
+                <NavLink className="products_links" key={product.id} to="" onMouseOver={() => toggleIndex(index)}>
+                    <div className={`image ${openIndexes.includes(index) ? 'open' : ''}`} style={{backgroundImage: `url(${product.image})`, animation: ``}}>
+                        <div></div>
+                    </div>
+                </NavLink>
+            ))}
         </section>
     )
 }
