@@ -1,16 +1,24 @@
 import './style/App.sass';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink,  useParams, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router';
 
+import { useState } from 'react';
+import { Navigate } from 'react-router';
+
+let closing_id = null
 
 function App() {
+  let {id} = useParams()
+  if(id) closing_id = id
+  
+  
   return (
     <div className="App">
       <div id='texture'></div>
-      
+
       <nav>
-        <NavLink to={'/'} id="logo"> My_Tiny </NavLink>
+        <NavLink to="" id="logo"> My_Tiny </NavLink>
 
         <p>
           Taste happiness in a tiny world.
@@ -23,7 +31,7 @@ function App() {
       </nav>
 
       <main>
-        <Outlet />
+        <Outlet context={{closing_id}}/>
       </main>
 
       <footer>

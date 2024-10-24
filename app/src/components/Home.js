@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { useState, useEffect } from "react"
 
-import { Navigate } from "react-router-dom"
+import { Navigate, useOutletContext } from "react-router-dom"
 
 export default function Home(){
     const products = [
@@ -39,7 +39,25 @@ export default function Home(){
         }
     ]
 
+    const { closing_id } = useOutletContext();
+    let [localClosingId, setLocalClosingId] = useState(closing_id);
+
     let [openIndexes, setOpenIndexes] = useState([])
+
+    if(localClosingId){
+        setTimeout(()=>{
+            let expanded_link = document.querySelector(".expand")
+            
+            if(expanded_link){
+                expanded_link.classList.remove("expand")
+                expanded_link.style.transform = `translateX(0%)`
+            }
+
+            setLocalClosingId(null)
+        },50)
+    }
+
+
 
     function ToggleIndex(index){
         if(!openIndexes.includes(index)){
@@ -67,7 +85,7 @@ export default function Home(){
         <section id="home">
             {!toggleLink && products.map((product, index)=>(
                 <a className="products_links" key={product.id} onClick={(e) => OpenLink(e, product.id)} onMouseOver={() => ToggleIndex(index)}>
-                    <div className={`image ${openIndexes.includes(index) ? 'open' : ''}`} style={{backgroundImage: `url(${product.image})`}}>
+                    <div className={`image ${openIndexes.includes(index) || index == closing_id ? 'open' : ''} ${index == closing_id && 'expand'}`} style={{backgroundImage: `url(${product.image})`, transform: index == closing_id ? `translateX(-${25*(index)}%)`: ''}}>
                         <div id="filter">
                             <h2>
                                 <span>{product.country}</span>
