@@ -1,4 +1,7 @@
 body
+    background: #99b3c1e5
+    overflow: hidden
+    
     nav
         display: flex
         align-items: start
@@ -6,8 +9,8 @@ body
         position: absolute
         padding: 20px
         width: calc(100% - (20px * 2))
-        z-index: 999
-
+        z-index: 998
+        pointer-events: none
 
         #logo
             text-decoration: none
@@ -30,12 +33,12 @@ body
             display: flex
             flex-direction: column
             align-items: end
-            font-size: 5em
+            font-size: 4vw
             width: 40%
             font-weight: 100
             line-height: 100px
             pointer-events: none
-            margin: 30px 40px 
+            margin: 30px 40px
     
             
             p
@@ -54,7 +57,7 @@ body
                 padding: 10px 15px
                 border-radius: 200px
                 transition: ease-in-out 0.5s
-                background: #ffffff20
+                background: #6b7d8042
                 backdrop-filter: blur(2px)
                 pointer-events: auto
 
@@ -63,7 +66,12 @@ body
         padding: 20px
         position: absolute
         bottom: 0
-        z-index: 999
+        z-index: 998
+        width: calc(100% - (20px * 2))
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+
 
         a
             display: inline-block
@@ -75,3 +83,16 @@ body
             font-family: $fancy_font
             font-size: 2em
             margin-right: 3px
+
+
+    #texture
+        pointer-events: none
+        height: 100%
+        width: 100%
+        position: absolute
+        background-image: url('../../../public/images/Wood_texture.jpg')
+        opacity: 0.2
+        background-size: cover
+        background-blend-mode: hard-light
+        top: 0
+        z-index: 999

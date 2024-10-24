@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+import { Navigate } from "react-router-dom"
 
 export default function Home(){
-    let products = [
+    const products = [
         {
             'id': 1,
             'name': "Mossy Dwell",
@@ -24,7 +26,7 @@ export default function Home(){
             'name': "Cedar Havens",
             'price': 100,
             'forest': "Tatra National Park",
-            'country': "Slovakia/Poland",
+            'country': "Slovakia / Poland",
             'image':`/images/Tiny_house_3.png`,
         },
         {
@@ -39,21 +41,44 @@ export default function Home(){
 
     let [openIndexes, setOpenIndexes] = useState([])
 
-    function toggleIndex(index){
+    function ToggleIndex(index){
         if(!openIndexes.includes(index)){
             setOpenIndexes([...openIndexes, index])
         }
     }
 
+
+    let [toggleLink, setToggleLink] = useState(false)
+    let [toggleId, setToggleId] = useState(null)
+
+    function OpenLink(e, id){
+        setToggleId(id-1)
+
+        let link_image = e.currentTarget.querySelector(".image")
+        link_image.classList.add("expand")
+        link_image.style.transform = `translateX(-${25*(id-1)}%)`
+
+        setTimeout(()=>{
+            setToggleLink(true)
+        }, 1000)
+    }
+
     return(
         <section id="home">
-            {products.map((product, index)=>(
-                <NavLink className="products_links" key={product.id} to="" onMouseOver={() => toggleIndex(index)}>
-                    <div className={`image ${openIndexes.includes(index) ? 'open' : ''}`} style={{backgroundImage: `url(${product.image})`, animation: ``}}>
-                        <div></div>
+            {!toggleLink && products.map((product, index)=>(
+                <a className="products_links" key={product.id} onClick={(e) => OpenLink(e, product.id)} onMouseOver={() => ToggleIndex(index)}>
+                    <div className={`image ${openIndexes.includes(index) ? 'open' : ''}`} style={{backgroundImage: `url(${product.image})`}}>
+                        <div id="filter">
+                            <h2>
+                                <span>{product.country}</span>
+                                {product.name}
+                            </h2>
+                        </div>
                     </div>
-                </NavLink>
+                </a>
             ))}
+
+            {toggleLink && <Navigate to={`/product/${toggleId}`} replace />}
         </section>
     )
 }
