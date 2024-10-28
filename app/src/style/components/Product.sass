@@ -1,8 +1,47 @@
 #product
     height: 100vh
-    background-size: 150vw
+    background-size: 100vw
     background-position: center
     background-repeat: no-repeat
 
     #filter
-        opacity: 0.5
+        opacity: 1
+
+        button
+            background: #ffffff98
+            color: #1a1d1f
+            border: none
+            font-size: 12px
+            backdrop-filter: blur(10px)
+            position: absolute
+            border-radius: 200px
+            padding: 5px 20px
+            z-index: 999
+            border: solid 0.5px #ffffffa7
+            box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
+            transition: ease-in-out 0.3s
+
+        button:hover
+            box-shadow: inset 0 -5px 5px #ffffff9d,  inset 0 5px 5px #1f21228e
+
+
+        button::first-letter
+            font-family: $fancy_font
+            font-size: 2em
+
+
+        #tinyhome
+            bottom: 32%
+            right: 21%
+
+        #mainroom
+            bottom: 25%
+            right: 25%
+
+        #bathroom
+            bottom: 18%
+            right: 30%
+            
+
+        
+            

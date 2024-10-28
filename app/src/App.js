@@ -3,8 +3,8 @@ import './style/App.sass';
 import { NavLink,  useParams, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router';
 
-import { useState } from 'react';
-import { Navigate } from 'react-router';
+import { AnimatePresence, motion } from 'framer-motion';
+
 
 let closing_id = null
 
@@ -18,27 +18,51 @@ function App() {
       <div id='texture'></div>
 
       <nav>
-        <NavLink to="" id="logo"> My_Tiny </NavLink>
+        <NavLink to="/" id="logo"> 
+          My_Tiny
+        </NavLink>
 
-        <p>
+        <motion.p
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -100 }}
+          transition={{ duration: 1 }}
+        >
           Taste happiness in a tiny world.
-        </p>
+        </motion.p>
 
-        <h1>
-          <p>GET YOUR WONDERFULL TINY HOME</p>
-          <button>EXPLORE OUR PRODUCTS</button>
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 1 }}
+        >
+            <p>GET YOUR WONDERFULL TINY HOME</p>
+            <button>EXPLORE OUR PRODUCTS</button>
+        </motion.h1>
       </nav>
 
       <main>
-        <Outlet context={{closing_id}}/>
+        <AnimatePresence>
+              <motion.div key="content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}
+              >
+                  <Outlet context={{closing_id}}/>
+              </motion.div>
+          </AnimatePresence>
       </main>
 
-      <footer>
+      <motion.footer
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 100 }}
+        transition={{ duration: 1 }}
+      >
+
         <a href="">Facebook</a>
         <a href="">Linkedin</a>
         <a href="">Instagram</a>
-      </footer>
+
+      </motion.footer>
 
     </div>
   );

@@ -1,7 +1,10 @@
-import { NavLink } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 import { Navigate, useOutletContext } from "react-router-dom"
+
+
+
+let openedLinks = []
 
 export default function Home(){
     const products = [
@@ -42,7 +45,15 @@ export default function Home(){
     const { closing_id } = useOutletContext();
     let [localClosingId, setLocalClosingId] = useState(closing_id);
 
-    let [openIndexes, setOpenIndexes] = useState([])
+    let [openIndexes, setOpenIndexes] = useState(openedLinks)
+    openedLinks = openIndexes
+
+    function ToggleIndex(index){
+        if(!openIndexes.includes(index)){
+            setOpenIndexes([...openIndexes, index])
+        }
+    }
+
 
     if(localClosingId){
         setTimeout(()=>{
@@ -52,19 +63,10 @@ export default function Home(){
                 expanded_link.classList.remove("expand")
                 expanded_link.style.transform = `translateX(0%)`
             }
-
+            
             setLocalClosingId(null)
-        },50)
+        },10)
     }
-
-
-
-    function ToggleIndex(index){
-        if(!openIndexes.includes(index)){
-            setOpenIndexes([...openIndexes, index])
-        }
-    }
-
 
     let [toggleLink, setToggleLink] = useState(false)
     let [toggleId, setToggleId] = useState(null)
@@ -82,10 +84,11 @@ export default function Home(){
     }
 
     return(
+    
         <section id="home">
             {!toggleLink && products.map((product, index)=>(
                 <a className="products_links" key={product.id} onClick={(e) => OpenLink(e, product.id)} onMouseOver={() => ToggleIndex(index)}>
-                    <div className={`image ${openIndexes.includes(index) || index == closing_id ? 'open' : ''} ${index == closing_id && 'expand'}`} style={{backgroundImage: `url(${product.image})`, transform: index == closing_id ? `translateX(-${25*(index)}%)`: ''}}>
+                    <div className={`image ${openedLinks.includes(index) || index == closing_id ? 'open' : ''} ${index == closing_id && 'expand'}`} style={{backgroundImage: `url(${product.image})`, transform: index == closing_id ? `translateX(-${25*(index)}%)`: ''}}>
                         <div id="filter">
                             <h2>
                                 <span>{product.country}</span>
