@@ -38,7 +38,8 @@ function App() {
           transition={{ duration: 1 }}
         >
             <p>GET YOUR WONDERFULL TINY HOME</p>
-            <button>EXPLORE OUR PRODUCTS</button>
+            <button>EXPLORE OUR PROJECT</button>
+            <button>CONTACT</button>
         </motion.h1>
       </nav>
 
