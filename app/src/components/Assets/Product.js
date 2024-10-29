@@ -91,8 +91,9 @@ export default function Product(){
                             transition={{ duration: 0.5}}
                         >
                             {description}
-                        </motion.p>
 
+                        </motion.p>
+ 
                         <button>Book</button>
                         <button>Construction estimate</button>
                     </motion.div>

@@ -1,6 +1,6 @@
 #product
     height: 100vh
-    background-size: 100vw
+    background-size: 200vh
     background-position: center
     background-repeat: no-repeat
 
@@ -12,19 +12,30 @@
             top: 20%
             left: 5%
             background: #c4c8cccf
-            width: 20%
+            width: 400px
+            max-width: 70%
             border-radius: 20px
+            padding: 30px
+
 
             p
-                margin: 30px
                 font-size: 12px
                 font-family: $title_font
                 color: #1a1d1f
-                overflow: hidden
+                overflow: hidden scroll
                 line-height: 20px
+                display: flex
+                flex-direction: column
+                justify-content: start
+                align-items: start
+                max-height: 40vh
+
+                @media (max-width: 800px)
+                    max-height: 20vh
 
             button
-                margin: 30px 20px
+                margin-top: 20px
+                margin-right: 10px
                 font-size: 10px
                 background: #ffffff50
                 color: #1a1d1f
@@ -43,6 +54,7 @@
 
         &>div:nth-child(2)
             button
+                margin: 0 20px
                 background: #c2c9d0d1
                 color: #1a1d1f
                 border: none
@@ -78,7 +90,7 @@
 
             #landscape
                 bottom: 10%
-                left: 40%
+                right: 40vw
             
 
         

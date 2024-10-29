@@ -1,6 +1,9 @@
 #home
     height: 100vh
     display: flex
+
+    @media (max-width: 1100px)
+        flex-direction: column
     
     .products_links
         width: calc(100%/4)
@@ -8,10 +11,15 @@
         border-right: solid 0.5px #ffffff70
         position: relative
 
+        @media (max-width: 1100px)
+            width: 100%
+            height: calc(100%/4)
+            border-bottom: solid 0.5px #ffffff70
+
         .image
             height: 0%
             width: 100%
-            background-size: 100vw
+            background-size: 200vh
             background-position: center
             background-repeat: no-repeat
             transition: ease-in-out 1s
@@ -20,14 +28,14 @@
                 display: flex
                 align-items: flex-end
                 transition: ease-in-out 1s
-                background: #2b343fa5
+                overflow: hidden
 
             h2
                 font-size: 15px
                 display: flex
                 flex-direction: column
                 font-weight: 200
-                margin: 30px 40px
+                margin: 20px 40px
                 transition: ease-in-out 1s
 
                 span

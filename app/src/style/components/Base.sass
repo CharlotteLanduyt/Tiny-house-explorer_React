@@ -14,10 +14,13 @@ body
 
         #logo
             text-decoration: none
-            margin: 40px
+            margin: 2vw
             font-family: $title_font
             pointer-events: auto
             font-size: 1.2em
+
+            @media (max-width: 900px) 
+                font-size: 1em
 
         #logo::first-letter
             font-family: $fancy_font
@@ -26,8 +29,11 @@ body
         &>p
             width: 10%
             font-size: 12px
-            margin: 60px 0
+            margin: 3vw 0
             text-transform: uppercase
+
+            @media (max-width: 900px)
+                display: none
 
         h1
             display: flex
@@ -36,15 +42,20 @@ body
             font-size: 4vw
             width: 40%
             font-weight: 100
-            line-height: 100px
+            line-height: 150%
             pointer-events: none
             margin: 30px 40px
+
+            @media (max-width: 900px)
+                margin: 0
     
-            
             p
                 width: 100%
                 font-family: $title_font
                 text-align: right
+
+                @media (max-width: 900px)
+                    display: none
 
             p::first-letter
                 font-family: $fancy_font
@@ -60,6 +71,12 @@ body
                 background: #838a8b89
                 backdrop-filter: blur(2px)
                 pointer-events: auto
+                text-align: right
+                white-space: nowrap
+
+                @media (max-width: 900px)
+                    font-size: 9px
+             
 
 
     footer
@@ -76,7 +93,7 @@ body
 
         a
             display: inline-block
-            font-size: 10px
+            font-size: 0.5em
             margin-right: 10px
             text-decoration: none
             pointer-events: auto
