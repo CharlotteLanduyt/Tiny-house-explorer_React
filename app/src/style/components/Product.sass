@@ -7,40 +7,78 @@
     #filter
         opacity: 1
 
-        button
-            background: #ffffff98
-            color: #1a1d1f
-            border: none
-            font-size: 12px
-            backdrop-filter: blur(10px)
+        &>div:nth-child(1)
             position: absolute
-            border-radius: 200px
-            padding: 5px 20px
-            z-index: 999
-            border: solid 0.5px #ffffffa7
-            box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
-            transition: ease-in-out 0.3s
+            top: 20%
+            left: 5%
+            background: #c4c8cccf
+            width: 20%
+            border-radius: 20px
 
-        button:hover
-            box-shadow: inset 0 -5px 5px #ffffff9d,  inset 0 5px 5px #1f21228e
+            p
+                margin: 30px
+                font-size: 12px
+                font-family: $title_font
+                color: #1a1d1f
+                overflow: hidden
+                line-height: 20px
+
+            button
+                margin: 30px 20px
+                font-size: 10px
+                background: #ffffff50
+                color: #1a1d1f
+                border: none
+                padding: 5px 20px
+                border-radius: 200px
+                box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
+                transition: ease-in-out 0.3s
+
+            button::first-letter
+                font-family: $fancy_font
+                font-size: 2em
+
+            button:hover
+                box-shadow: inset 0 -5px 5px #ffffffc9,  inset 0 5px 5px #1f212266
+
+        &>div:nth-child(2)
+            button
+                background: #c2c9d0d1
+                color: #1a1d1f
+                border: none
+                font-size: 10px
+                backdrop-filter: blur(10px)
+                position: absolute
+                border-radius: 200px
+                padding: 5px 20px
+                z-index: 999
+                box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
+                transition: ease-in-out 0.3s
+
+            button:hover
+                box-shadow: inset 0 -5px 5px #ffffffc1,  inset 0 5px 5px #1f212279
 
 
-        button::first-letter
-            font-family: $fancy_font
-            font-size: 2em
+            button::first-letter
+                font-family: $fancy_font
+                font-size: 2em
 
 
-        #tinyhome
-            bottom: 32%
-            right: 21%
+            #tinyhome
+                bottom: 32%
+                right: 21%
 
-        #mainroom
-            bottom: 25%
-            right: 25%
+            #mainroom
+                bottom: 25%
+                right: 25%
 
-        #bathroom
-            bottom: 18%
-            right: 30%
+            #bathroom
+                bottom: 18%
+                right: 30%
+
+            #landscape
+                bottom: 10%
+                left: 40%
             
 
         

@@ -43,9 +43,8 @@ function App() {
       </nav>
 
       <main>
-        <AnimatePresence>
-              <motion.div key="content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}
-              >
+        <AnimatePresence mode="wait">
+              <motion.div key="content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
                   <Outlet context={{closing_id}}/>
               </motion.div>
           </AnimatePresence>
