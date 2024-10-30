@@ -1,46 +1,14 @@
 import { useState } from "react"
 
 import { Navigate, useOutletContext } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 
 
 let openedLinks = []
 
 export default function Home(){
-    const products = [
-        {
-            'id': 1,
-            'name': "Mossy Dwell",
-            'price': 100,
-            'forest': "Black Forest",
-            'country': "Germany",
-            'image':`/images/Tiny_house_1.png`,
-        },
-        {
-            'id': 2,
-            'name': "Leafy Hideaways",
-            'price': 120,
-            'forest': "Hallerbos",
-            'country': "Belgium",
-            'image':`/images/Tiny_house_2.png`,
-        },
-        {
-            'id': 3,
-            'name': "Cedar Havens",
-            'price': 100,
-            'forest': "Tatra National Park",
-            'country': "Slovakia / Poland",
-            'image':`/images/Tiny_house_3.png`,
-        },
-        {
-            'id': 4,
-            'name': "Forest Nooks",
-            'price': 90,
-            'forest': "Plitvice Lakes National Park",
-            'country': "Croatia",
-            'image':`/images/Tiny_house_4.png`,
-        }
-    ]
+    const products = useSelector((state) => state.products.products)
 
     const { closing_id } = useOutletContext();
     let [localClosingId, setLocalClosingId] = useState(closing_id);
@@ -88,7 +56,7 @@ export default function Home(){
         <section id="home">
             {!toggleLink && products.map((product, index)=>(
                 <a className="products_links" key={product.id} onClick={(e) => OpenLink(e, product.id)} onMouseOver={() => ToggleIndex(index)}>
-                    <div className={`image ${openedLinks.includes(index) || index == closing_id ? 'open' : ''} ${index == closing_id && 'expand'}`} style={{backgroundImage: `url(${product.image})`, transform: index == closing_id ? `translateX(-${25*(index)}%)`: ''}}>
+                    <div className={`image ${openedLinks.includes(index) || index === closing_id ? 'open' : ''} ${index === closing_id && 'expand'}`} style={{backgroundImage: `url(${product.image})`, transform: index === closing_id ? `translateX(-${25*(index)}%)`: ''}}>
                         <div id="filter">
                             <h2>
                                 <span>{product.country}</span>
