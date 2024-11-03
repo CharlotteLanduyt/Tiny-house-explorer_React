@@ -5,12 +5,11 @@ import { Outlet } from 'react-router';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
+import Home from './components/Home';
 
-let closing_id = null
 
 function App() {
   let {id} = useParams()
-  if(id) closing_id = id
   
   
   return (
@@ -38,17 +37,16 @@ function App() {
           transition={{ duration: 1 }}
         >
             <p>GET YOUR WONDERFULL TINY HOME</p>
-            <button>EXPLORE OUR PROJECT</button>
-            <button>CONTACT</button>
+            
+            <NavLink to="about_us">EXPLORE OUR PROJECT</NavLink>
+            <NavLink to="contact">CONTACT</NavLink>
         </motion.h1>
       </nav>
 
       <main>
-        <AnimatePresence mode="wait">
-              <motion.div key="content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
-                  <Outlet context={{closing_id}}/>
-              </motion.div>
-          </AnimatePresence>
+        <Outlet />
+
+        <Home />
       </main>
 
       <motion.footer

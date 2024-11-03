@@ -1,20 +1,16 @@
 import { useState } from "react"
 
-import { Navigate, useOutletContext } from "react-router-dom"
+import { NavLink, Navigate, useOutletContext } from "react-router-dom"
 import { useSelector } from "react-redux"
 
+import { Outlet } from "react-router-dom"
 
-
-let openedLinks = []
 
 export default function Home(){
     const products = useSelector((state) => state.products.products)
 
-    const { closing_id } = useOutletContext();
-    let [localClosingId, setLocalClosingId] = useState(closing_id);
+    let [openIndexes, setOpenIndexes] = useState([])
 
-    let [openIndexes, setOpenIndexes] = useState(openedLinks)
-    openedLinks = openIndexes
 
     function ToggleIndex(index){
         if(!openIndexes.includes(index)){
@@ -22,41 +18,12 @@ export default function Home(){
         }
     }
 
-
-    if(localClosingId){
-        setTimeout(()=>{
-            let expanded_link = document.querySelector(".expand")
-            
-            if(expanded_link){
-                expanded_link.classList.remove("expand")
-                expanded_link.style.transform = `translateX(0%)`
-            }
-            
-            setLocalClosingId(null)
-        },10)
-    }
-
-    let [toggleLink, setToggleLink] = useState(false)
-    let [toggleId, setToggleId] = useState(null)
-
-    function OpenLink(e, id){
-        setToggleId(id-1)
-
-        let link_image = e.currentTarget.querySelector(".image")
-        link_image.classList.add("expand")
-        link_image.style.transform = `translateX(-${25*(id-1)}%)`
-
-        setTimeout(()=>{
-            setToggleLink(true)
-        }, 1000)
-    }
-
     return(
     
         <section id="home">
-            {!toggleLink && products.map((product, index)=>(
-                <a className="products_links" key={product.id} onClick={(e) => OpenLink(e, product.id)} onMouseOver={() => ToggleIndex(index)}>
-                    <div className={`image ${openedLinks.includes(index) || index === closing_id ? 'open' : ''} ${index === closing_id && 'expand'}`} style={{backgroundImage: `url(${product.image})`, transform: index === closing_id ? `translateX(-${25*(index)}%)`: ''}}>
+            {products.map((product, index)=>(
+                <NavLink to={`/product/${product.id - 1}/tinyhome`} className="products_links" key={product.id} onMouseOver={() => ToggleIndex(index)}>
+                    <div className={`image ${openIndexes.includes(index) ? 'open' : ''}`} style={{backgroundImage: `url(${product.tinyhome_image})`}}>
                         <div id="filter">
                             <h2>
                                 <span>{product.country}</span>
@@ -64,10 +31,8 @@ export default function Home(){
                             </h2>
                         </div>
                     </div>
-                </a>
+                </NavLink>
             ))}
-
-            {toggleLink && <Navigate to={`/product/${toggleId}`} replace />}
         </section>
     )
 }

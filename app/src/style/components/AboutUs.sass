@@ -1,0 +1,83 @@
+#about_us
+    height: 100vh
+    background: linear-gradient(#2b343f9e,#2b343f9e), url('../../../public/images/about_us_image.png')
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+
+    #description
+        position: absolute
+        width: 60vw
+        top: 40%
+        left: 5%
+        background: #aeb4ba63
+        backdrop-filter: blur(10px)
+        border-radius: 20px
+        padding: 30px
+
+        @media (max-width: 900px)
+            width: 70%
+            top: 25%
+
+
+        p
+            font-family: $title_font
+            font-size: 14px
+            margin: 15px 0
+            height: 30vh
+            overflow: hidden scroll
+            padding-right: 30px
+            line-height: 140%
+            font-weight: 100
+            display: flex
+            align-items: center
+
+        a
+            margin: 20px
+            font-size: 12px
+            border: solid 0.5px #ffffffaf
+            padding: 5px 15px
+            border-radius: 200px
+            box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
+            transition: ease-in-out 0.3s
+
+        a::first-letter
+            font-family: $fancy_font
+            font-size: 2em
+            margin: 0 2px
+
+        a:hover
+            background: #ffffffb5
+            color: #1a1d1f
+        
+            
+
+        &>div
+            display: flex
+            justify-content: end
+            align-items: center
+            margin-top: 30px
+            font-size: 12px
+
+            button
+                font-size: 12px
+                background: none
+                color: #ffffff
+                border: none
+                padding: 5px 10px
+                border-radius: 200px
+                box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
+                transition: ease-in-out 0.3s
+                border: solid 0.5px #ffffffaf
+                margin: 5px 20px
+
+                i
+                    color: #ffffff
+                    font-size: 15px
+
+            button:hover
+                background: #bababa4d
+                box-shadow: inset 0 -5px 5px #ffffff53,  inset 0 5px 5px #1f212284
+           
+
+            

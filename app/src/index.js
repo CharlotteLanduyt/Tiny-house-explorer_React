@@ -9,19 +9,22 @@ import store from './store/store.js';
 
 
 import App from './App';
-import Home from "./components/Home.js"
-import Product from "./components/Template/Product.js"
 import ErrorPage from "./components/ErrorPage.js"
+import Product from "./components/Template/Product.js"
+import AboutUs from './components/AboutUs.js';
+import Contact from './components/Contact.js';
+
 
 const router = createBrowserRouter([
   { path: "/", element: <App />,  errorElement: <ErrorPage />, children:[
-      {path: "", element: <Home />},
-      {path: "product/:id", element: <Product />},
+      {path: "product/:id/:slug",  errorElement: <ErrorPage />, element: <Product />},
+      {path: "about_us",  errorElement: <ErrorPage />, element: <AboutUs />},
+      {path: "contact",  errorElement: <ErrorPage />, element: <Contact />},
   ]},
 ]);
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot( document.getElementById('root'));
 
 root.render(
   <Provider store={store}>

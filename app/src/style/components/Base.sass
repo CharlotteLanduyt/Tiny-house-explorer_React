@@ -1,6 +1,5 @@
 body
     background: #9f9d9ae5
-    overflow: hidden
     
     nav
         display: flex
@@ -11,6 +10,10 @@ body
         width: calc(100% - (20px * 2))
         z-index: 998
         pointer-events: none
+
+        @media (max-width: 600px)
+            flex-direction: column
+            align-items: center
 
         #logo
             text-decoration: none
@@ -39,20 +42,24 @@ body
             display: flex
             flex-direction: column
             align-items: end
-            font-size: 4vw
             width: 40%
-            font-weight: 100
-            line-height: 150%
             pointer-events: none
             margin: 30px 40px
 
             @media (max-width: 900px)
                 margin: 0
+
+                @media (max-width: 600px)
+                    align-items: center
+                
     
             p
                 width: 100%
                 font-family: $title_font
                 text-align: right
+                font-weight: 100
+                line-height: 130%
+                font-size: 4vw
 
                 @media (max-width: 900px)
                     display: none
@@ -61,30 +68,35 @@ body
                 font-family: $fancy_font
                 font-size: 2em
 
-            button
-                margin-top: 2em
-                border: solid 0.5px
-                background: none
-                padding: 10px 15px
-                border-radius: 200px
-                transition: ease-in-out 0.5s
-                background: #838a8b89
-                backdrop-filter: blur(2px)
-                pointer-events: auto
+            a
+                font-size: 0.5em
                 text-align: right
                 white-space: nowrap
+                background: #ffffff5e
+                border: solid 0.5px #fff
+                padding: 10px 25px
+                border-radius: 200px
+                margin: 10px 0
+                backdrop-filter: blur(3px)
+                font-weight: 100
+                pointer-events: auto
 
-                @media (max-width: 900px)
-                    font-size: 9px
+                @media (max-width: 600px)
+                    margin: 5px 0
+
+            a:hover
+                background: #ffffffb5
+                color: #1a1d1f
+
              
 
 
     footer
-        padding: 20px
-        position: absolute
+        padding: 20px 5%
+        position: fixed
         bottom: 0
         z-index: 998
-        width: calc(100% - (20px * 2))
+        width: calc(100% - (4% * 2))
         display: flex
         flex-direction: column
         align-items: flex-end
@@ -108,7 +120,7 @@ body
         pointer-events: none
         height: 100%
         width: 100%
-        position: absolute
+        position: fixed
         background-image: url('../../../public/images/Wood_texture.jpg')
         opacity: 0.2
         background-size: cover
