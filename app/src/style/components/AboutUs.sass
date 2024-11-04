@@ -1,17 +1,17 @@
 #about_us
     height: 100vh
-    background: linear-gradient(#2b343f9e,#2b343f9e), url('../../../public/images/about_us_image.png')
+    background: #2b343f9e
+    backdrop-filter: blur(5px)
     background-size: cover
     background-position: center
     background-repeat: no-repeat
 
     #description
         position: absolute
-        width: 60vw
-        top: 40%
+        width: 50vw
+        top: 30%
         left: 5%
-        background: #aeb4ba63
-        backdrop-filter: blur(10px)
+        background: #aeb4ba5f
         border-radius: 20px
         padding: 30px
 
@@ -27,14 +27,15 @@
             height: 30vh
             overflow: hidden scroll
             padding-right: 30px
-            line-height: 140%
+            line-height: 22px
             font-weight: 100
             display: flex
-            align-items: center
+            flex-direction: column
+            align-items: start
 
         a
-            margin: 20px
-            font-size: 12px
+            margin: 20px 0
+            font-size: 10px
             border: solid 0.5px #ffffffaf
             padding: 5px 15px
             border-radius: 200px

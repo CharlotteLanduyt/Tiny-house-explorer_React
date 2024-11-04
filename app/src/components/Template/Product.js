@@ -16,7 +16,12 @@ export default function Product() {
     }
 
     return (
-        <section id="product" style={{ backgroundImage: `url(${products[id][`${slug}_image`]})` }}>
+        <motion.section id="product" style={{ backgroundImage: `url(${products[id][`${slug}_image`]})` }}
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+        >
             <div id="filter">
                 <div>
                     <h5>{slug}</h5>
@@ -64,6 +69,6 @@ export default function Product() {
                 </motion.div>
 
             </div>
-        </section>
+        </motion.section>
     );
 }

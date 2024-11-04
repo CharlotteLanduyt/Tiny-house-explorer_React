@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 // Define content as data for maintainability
 const chaptersContent = [
     {
@@ -44,16 +46,27 @@ export default function AboutUs() {
     const currentChapter = chaptersContent[displayedChapter];
 
     return (
-        <section id="about_us">
+        <motion.section id="about_us"
+            initial={{ x: -200}}
+            animate={{ x: 0 }}
+            exit={{ x: -200 }}
+            transition={{ duration: 1 }}
+        >
             <div id="description">
-                <h2>My Tiny</h2>
+                <h2>My Tiny </h2>
 
-                <p>
-                    {currentChapter.text}
+                <motion.p
+                    key={displayedChapter}
+                    initial= {{ opacity: 0 }}
+                    animate= {{ opacity: 1 }}
+                    exit= {{ opacity: 0 }}
+                    transition= {{ duration: 1 }}
+                >
+                    {currentChapter.text} 
                     {currentChapter.link && (
                         <NavLink to={currentChapter.link}>Begin your journey</NavLink>
                     )}
-                </p>
+                </motion.p>
 
                 <div className="navigation">
                     {displayedChapter > 0 && (
@@ -71,6 +84,10 @@ export default function AboutUs() {
                     )}
                 </div>
             </div>
-        </section>
+
+            <div id="testimonials">
+
+            </div>
+        </motion.section>
     );
 }
