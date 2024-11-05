@@ -63,11 +63,13 @@ const initialState = {
     ],
 };
   
+// Reducer function for managing product data
 const products_objects = (state = initialState, action) => {
+    // Switch statement for handling different action types
     switch (action.type) {
         default:
-            return state;
+            return state; // Return the current state for any unknown action
     }
 };
 
-export default products_objects;
+export default products_objects; // Export the reducer for use in the Redux store

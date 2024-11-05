@@ -3,30 +3,25 @@
     background-size: 200vh
     background-position: center
     background-repeat: no-repeat
-    background-color: #9f9d9ae5
-    display: flex
-    align-items: center
-    justify-content: center
     background-attachment: fixed
 
     #filter
-        opacity: 1
-        min-height: 100vh
+        display: flex
+        align-items: center
+        justify-content: center
+        background: #13141594
+        height: 100vh
 
-        &>div:nth-child(1)
+        & > article:nth-child(1)
             position: absolute
             top: 20%
             left: 5%
-            background: #aeb4ba63
             width: 400px
+            background: $transparency_color
             max-width: 70%
             border-radius: 20px
             padding: 30px
             backdrop-filter: blur(20px)
-
-            h5
-                font-size: 20px
-
 
             p
                 overflow: hidden scroll
@@ -38,50 +33,20 @@
                 max-height: 40vh
                 transition: max-height ease-in-out 1s
                 font-size: 13px
-                font-family: $title_font
-                color: #ffffff
                 padding-right: 30px
 
             div
                 display: flex
                 justify-content: space-between
-                
+
                 button
                     margin-top: 25px
                     margin-right: 10px
-                    font-size: 10px
-                    background: none
-                    color: #ffffff
-                    border: none
-                    padding: 5px 15px
-                    border-radius: 200px
-                    box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
-                    transition: ease-in-out 0.3s
-                    border: solid 0.5px #ffffffaf
-
-                    i
-                        color: #ffffff
-                        font-size: 15px
-
-                    span
-                        font-size: 20px
-                        font-family: $title_font
-
-
-                button::first-letter
-                    font-family: $fancy_font
-                    font-size: 2em
-
-                button:hover
-                    background: #bababa4d
-                    box-shadow: inset 0 -5px 5px #ffffff53,  inset 0 5px 5px #1f212284
 
                 button:last-of-type
                     padding: 7px 9px
 
-
-
-        &>div:nth-child(2)
+        & > article:nth-child(2)
             position: absolute
             display: flex
             flex-direction: column
@@ -91,32 +56,24 @@
 
             a
                 margin: 10px 0
-                background: #aeb4ba63
-                color: #ffffff
-                border: solid 0.5px #ffffff96
+                background: $transparency_color
+                border: $white_border
                 font-size: 12px
                 backdrop-filter: blur(10px)
                 border-radius: 200px
                 padding: 5px 20px
-                box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
+                box-shadow: inset 0 -5px 5px transparent, inset 0 5px 5px rgba(31, 33, 34, 0)
                 transition: ease-in-out 0.3s
                 text-transform: capitalize
 
             a:hover, a.active
-                box-shadow: inset 0 -5px 5px #ffffff6c,  inset 0 5px 5px #1f212277
-
+                box-shadow: inset 0 -5px 5px rgba(255, 255, 255, 0.43), inset 0 5px 5px rgba(31, 33, 34, 0.46)
 
             a::first-letter
                 font-family: $fancy_font
                 font-size: 2em
                 margin: 0 2px
 
-
-
             @for $i from 1 through 4
                 a:nth-child(#{$i})
                     margin-right: #{$i * 5}vw
-            
-
-        
-            

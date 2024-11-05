@@ -1,0 +1,27 @@
+#about_us
+    min-height: 100vh
+    background: #2a2e3191
+    backdrop-filter: blur(5px)
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    display: flex
+    align-items: flex-end
+    justify-content: center
+
+    @media (max-width: 900px)
+        flex-direction: column
+        align-items: center
+        justify-content: center
+
+    & > div
+        margin: 10% 2%
+
+        @media (max-width: 900px)
+            margin: 5% 2%
+
+    @import './AboutUs/Description'
+    @import './AboutUs/Testimonials'
+
+    button
+        margin: 0 20px

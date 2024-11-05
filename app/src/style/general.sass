@@ -1,0 +1,97 @@
+*
+    margin: 0
+    font-family: $general_font
+    letter-spacing: 0.7px
+    color: $white
+    
+
+// buttons & links
+
+button:hover, a:hover
+    cursor: pointer
+
+
+a
+    transition: ease-in-out 0.5s
+    text-decoration: none
+    font-family: $title_font
+
+button
+    background: none
+    font-size: 10px
+    padding: 5px 15px
+    border-radius: 200px
+    box-shadow: inset 0 -5px 5px #ffffff00,  inset 0 5px 5px #1f212200
+    transition: ease-in-out 0.3s
+    border: $white_border
+    font-family: $title-font
+
+    i
+        font-size: 15px
+
+    span
+        font-size: 20px
+
+button:hover
+    background: #ffffff20
+    box-shadow: inset 0 -5px 5px #ffffff53,  inset 0 5px 5px #1f212284
+
+
+button::first-letter
+    font-family: $fancy_font
+    font-size: 2em
+
+
+// listes
+li
+    list-style-type: none
+    text-align: right
+
+
+// titles
+
+h2
+    font-size: 17px
+    display: flex
+    flex-direction: column
+    font-weight: 200
+    margin: 20px 40px
+    transition: ease-in-out 1s
+
+    span
+        font-family: $fancy_font
+        font-size: 22px
+        margin: 5px 0
+        font-weight: 100
+
+h2::first-letter
+    font-family: $fancy_font
+    font-size: 2em
+    margin: 0 3px
+
+
+h5
+    font-weight: 100
+    font-size: 18px
+    margin: 15px 0
+    line-height: 25px
+  
+
+h5::first-letter
+    font-family: $fancy_font
+    font-size: 2em
+    margin: 0 3px
+    text-transform: capitalize
+
+
+
+
+//  Scrollbar
+
+::-webkit-scrollbar
+    background: none
+    width: 1px
+
+::-webkit-scrollbar-thumb
+    background: linear-gradient(#ffffff00,$white,#ffffff00) 
+    border-radius: 200px

@@ -1,0 +1,39 @@
+#testimonials
+    width: 30vw
+    position: relative
+
+    @media (max-width: 900px)
+        width: 70%
+        margin-bottom: 15vh
+
+    & > p
+        font-size: 25px
+        margin: 10px 0
+        font-family: $fancy_font
+
+    article
+        background: $transparency_color
+        border-radius: 20px
+        padding: 30px
+        display: flex
+        justify-content: space-between
+
+        @media (max-width: 900px)
+            flex-direction: column
+
+        div
+            h5
+                margin: 0
+                
+            p:first-of-type
+                font-size: 10px
+                margin: 5px 10px
+                font-family: $title_font
+
+            p:last-of-type
+                font-size: 14px
+                margin: 25px 0
+
+            div
+                font-size: 12px
+                margin: 15px 0

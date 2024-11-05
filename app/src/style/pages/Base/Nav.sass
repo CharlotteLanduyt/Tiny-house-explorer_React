@@ -1,0 +1,86 @@
+nav
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    position: absolute
+    padding: 20px
+    width: calc(100% - 40px)
+    z-index: 998
+    pointer-events: none
+
+    @media (max-width: 600px)
+        flex-direction: column
+        align-items: center
+
+    #logo
+        text-decoration: none
+        margin: 2vw
+        pointer-events: auto
+        font-size: 1.2em
+        font-family: $general_font
+
+        @media (max-width: 900px) 
+            font-size: 1em
+
+    #logo::first-letter
+        font-family: $fancy_font
+        font-size: 2em
+
+    & > p
+        width: 10%
+        font-size: 12px
+        margin: 3vw 0
+        text-transform: uppercase
+        font-family: $title_font
+
+        @media (max-width: 900px)
+            display: none
+
+    h1
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        width: 40%
+        pointer-events: none
+        margin: 30px 40px
+
+        @media (max-width: 900px)
+            margin: 0
+
+            @media (max-width: 600px)
+                align-items: center
+
+        p
+            width: 100%
+            text-align: right
+            font-weight: 100
+            line-height: 130%
+            font-size: 4vw
+
+            @media (max-width: 900px)
+                display: none
+
+        p::first-letter
+            font-family: $fancy_font
+            font-size: 2em
+
+        a
+            font-size: 0.5em
+            text-align: right
+            white-space: nowrap
+            background: $transparency_color
+            border: $white_border
+            padding: 10px 25px
+            border-radius: 200px
+            margin: 10px 0
+            backdrop-filter: blur(3px)
+            font-weight: 100
+            pointer-events: auto
+            font-family: $title-font
+
+            @media (max-width: 600px)
+                margin: 5px 0
+
+        a:hover
+            background: #ffffffb5
+            color: $dark_grey
